@@ -1,0 +1,8 @@
+{
+"PasswordList":"realhuman_phill.txt",
+"NumberOfPasswords": 63941069,
+"Length":"[['Length : 1',107],['Length : 2',3626],['Length : 3',110778],['Length : 4',637281],['Length : 5',1822825],['Length : 6',6254133],['Length : 7',8257339],['Length : 8',11003551],['Length : 9',8904834],['Length : 10',7871077],['Length : 11',4376889],['Length : 12',3421942],['Length : 13',2466411],['Length : 14',1921371],['Length : 15',1464377],['Length : 16',1139451],['Length : 17',724737],['Length : 18',553588]]",
+"Pattern":"[['LowNum : ',9708549],['Low : ',14619700],['Num : ',2600830],['SpecAny : ',10647023],['Up : ',14614741],['LowUp : ',452280],['UpNum : ',9707048],['LowUpNum : ',1197712]]",
+"LowNumPattern":"[['LowerNum : ',7352655],['NumLower : ',859233],['RestLowNum : ',1496661]]",
+"LowerN":"[['LowerN :',1217425],['LowerNN :',2776514],['LowerNNN :',1042431],['LowerNNNN :',1533523],['LowerNNNNN :',239719],['LowerNNNNNN :',331198],['LowerNNNNNNN :',92299]]"
+}

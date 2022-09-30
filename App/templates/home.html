@@ -1,0 +1,136 @@
+{% extends 'layout.html' %}
+{% block css %}<link href="{{ url_for('static', filename='css/home.css') }}"
+      rel="stylesheet">{% endblock %}
+{% block scripts %}
+  <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+  <script type="text/javascript">
+    // Load the Visualization API and the corechart package.
+    google.charts.load('current', {'packages':['corechart']});
+
+
+    google.charts.setOnLoadCallback(drawPasswordLength);
+
+          // Callback that creates and populates a data table,
+    // instantiates the pie chart, passes in the data and
+    // draws it.
+    function drawPasswordLength() {
+
+      // Create the data table.
+      var data = new google.visualization.DataTable();
+      data.addColumn('string', 'password length');
+      data.addColumn('number', 'length');
+      data.addRows({{ PwdLength | safe }});
+
+      // Set chart options
+      var options = {'title':'Password Length',
+                     'width':1200,
+                     'height':500};
+
+      // Instantiate and draw our chart, passing in some options.
+      var chart = new google.visualization.ColumnChart(document.getElementById('chart_div'));
+      chart.draw(data, options);
+
+    // Set a callback to run when the Google Visualization API is loaded.
+    google.charts.setOnLoadCallback(drawPattern);
+
+
+          //Patern function
+          function drawPattern() {
+
+            // Create the data table.
+            var data = new google.visualization.DataTable();
+            data.addColumn('string', 'password length');
+            data.addColumn('number', 'length');
+            data.addRows({{ Pattern | safe }});
+      
+            // Set chart options
+            var options = {'title':'Password Pattern',
+                           'width':1200,
+                           'height':500};
+      
+            // Instantiate and draw our chart, passing in some options.
+            var chartt = new google.visualization.PieChart(document.getElementById('Pattern'));
+            chartt.draw(data, options);
+      
+      
+          }
+
+          google.charts.setOnLoadCallback(drawLowNumPattern);
+
+
+          //Patern function
+          function drawLowNumPattern() {
+
+            // Create the data table.
+            var data = new google.visualization.DataTable();
+            data.addColumn('string', 'LowNumPattern');
+            data.addColumn('number', 'length');
+            data.addRows({{ LowNumPattern | safe }});
+      
+            // Set chart options
+            var options = {'title':'Password LowNumPattern',
+                           'width':1200,
+                           'height':500};
+      
+            // Instantiate and draw our chart, passing in some options.
+            var chartt = new google.visualization.PieChart(document.getElementById('LowNumPattern'));
+            chartt.draw(data, options);
+      
+      
+          }
+
+          google.charts.setOnLoadCallback(drawLowerN);
+
+
+          //Patern function
+          function drawLowerN() {
+
+            // Create the data table.
+            var data = new google.visualization.DataTable();
+            data.addColumn('string', 'LowerN');
+            data.addColumn('number', 'length');
+            data.addRows({{ LowerN | safe }});
+      
+            // Set chart options
+            var options = {'title':'Password LowerN',
+                           'width':1200,
+                           'height':500};
+      
+            // Instantiate and draw our chart, passing in some options.
+            var chartt = new google.visualization.PieChart(document.getElementById('LowerN'));
+            chartt.draw(data, options);
+      
+      
+          }
+    }
+
+  
+  </script>
+{% endblock %}
+{% block content %}
+  <nav class="nav">
+    <input class="nav__trigger-input"
+           type="checkbox"
+           id="trigger"
+           aria-label="open the navigation"/>
+    <label class="nav__trigger-finger" for="trigger">
+      <span></span>
+    </label>
+    <ul class="nav__list">
+      {%- for menu in menus %}
+        <li class="nav__item">
+          <a href="{{ menu -}}" class="nav__link">{{ menu }}</a>
+        </li>
+      {% endfor %}
+    </ul>
+  </nav>
+  <div class="container">
+    <h1 class="py-3">{{ title }}</h1>
+    <h2 class="py-2">Wordlist : {{ PasswordList }} | {{ "{:,}".format(NumberOfPasswords).replace(",", " ") }} passwords</h2>
+    <div id="chart_div"></div>
+    <div id="Pattern"></div>
+    <h1 class="py-3">LowNum Analysis</h1>
+    <div id="LowNumPattern"></div>
+    <div id="LowerN"></div>
+  </div>
+{% endblock %}
