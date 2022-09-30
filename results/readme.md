@@ -1,4 +1,4 @@
-# ☠ Password Pattern ☠
+# ☠ Password Patterns ☠
 
 This project came to my mind after reading <a href="https://www.researchgate.net/publication/276113338_Cracking_More_Password_Hashes_With_Patterns" target=_blank> Emin Islam Tath' paper : Cracking more Password Hashes with Patterns.</a> and [this paper](https://www.sciencedirect.com/science/article/pii/S2666281721000949) (sorry, the title is just too long)
 The paper was really good but I could see two problem :
