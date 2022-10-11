@@ -141,16 +141,19 @@ echo -e "${CYAN}Generating special characters password patterns \n"
 
 OnlySpec=$(grep -Ea "^[\!:;,?./§*$&\"\'(-|_^@)=+]*$" $1 | wc -l)
 echo "${CYAN}OnlySpec :${NC} $OnlySpec"
-UpSpec=$(grep -Ea "[\!:;,?./§*$&\"\'(-|_^@)=+]" $1 | grep -vE "[0-9]" | grep -vE "[a-z]" | grep -vE "^[\!:;,?./§*$&\"\'(-|_^@)=+]+$" |  wc -l)
+UpSpec=$(grep -Ea "[\!:;,?./§*$&\"\'(-|_^@)=+]" $1 | grep -vaE "[0-9]" | grep -vaE "[a-z]" | grep -vaE "^[\!:;,?./§*$&\"\'(-|_^@)=+]+$" |  wc -l)
 echo "${CYAN}UpSpec :${NC} $UpSpec"
-LowSpec=$(grep -Ea "[\!:;,?./§*$&\"\'(-|_^@)=+]" $1 | grep -vE "[0-9]" | grep -vE "[A-Z]" | grep -vE "^[\!:;,?./§*$&\"\'(-|_^@)=+]+$" | wc -l)
+LowSpec=$(grep -Ea "[\!:;,?./§*$&\"\'(-|_^@)=+]" $1 | grep -vaE "[0-9]" | grep -vaE "[A-Z]" | grep -vaE "^[\!:;,?./§*$&\"\'(-|_^@)=+]+$" | wc -l)
 echo "${CYAN}LowSpec :${NC} $LowSpec"
-LowNumSpec=$(grep -Ea "[\!:;,?./§*$&\"\'(-|_^@)=+]" $1 | grep -Ea "[0-9]" | grep -Ea "[a-z]" | grep -vE "[A-Z]" | grep -vE "^[\!:;,?./§*$&\"\'(-|_^@)=+]+$" | wc -l)
+LowNumSpec=$(grep -Ea "[\!:;,?./§*$&\"\'(-|_^@)=+]" $1 | grep -Ea "[0-9]" | grep -Ea "[a-z]" | grep -vaE "[A-Z]" | grep -vaE "^[\!:;,?./§*$&\"\'(-|_^@)=+]+$" | wc -l)
 echo "${CYAN}LowNumSpec :${NC} $LowNumSpec"
-UpNumSpec=$(grep -Ea "[\!:;,?./§*$&\"\'(-|_^@)=+]" $1 | grep -Ea "[0-9]" | grep -Ea "[A-Z]" | grep -vE "[a-z]" | grep -vE "^[\!:;,?./§*$&\"\'(-|_^@)=+]+$" | wc -l)
+UpNumSpec=$(grep -Ea "[\!:;,?./§*$&\"\'(-|_^@)=+]" $1 | grep -Ea "[0-9]" | grep -Ea "[A-Z]" | grep -vaE "[a-z]" | grep -vaE "^[\!:;,?./§*$&\"\'(-|_^@)=+]+$" | wc -l)
 echo "${CYAN}UpNumSpec :${NC} $UpNumSpec"
-LowUpNumSpec=$(grep -Ea "[\!:;,?./§*$&\"\'(-|_^@)=+]" $1 | grep -Ea "[0-9]" | grep -Ea "[A-Z]" | grep -Ea "[a-z]" | grep -vE "^[\!:;,?./§*$&\"\'(-|_^@)=+]+$" | wc -l)
+LowUpNumSpec=$(grep -Ea "[\!:;,?./§*$&\"\'(-|_^@)=+]" $1 | grep -Ea "[0-9]" | grep -Ea "[A-Z]" | grep -Ea "[a-z]" | grep -vaE "^[\!:;,?./§*$&\"\'(-|_^@)=+]+$" | wc -l)
 echo "${CYAN}LowUpNumSpec :${NC} $LowUpNumSpec"
+
+echo -e "----------------------"
+echo "${LIGHT_MAGENTA}Total : ${NC}$(($OnlySpec+$UpSpec+$LowSpec+$LowNumSpec+$UpNumSpec+$LowUpNumSpec))"
 
 echo "\"SpecAny\":\"[['OnlySpec :',$OnlySpec],['UpSpec :',$UpSpec],['LowSpec :',$LowSpec],['LowNumSpec :',$LowNumSpec],['UpNumSpec :',$UpNumSpec],['LowUpNumSpec :',$LowUpNumSpec]]\"" >> $RESULT
 
