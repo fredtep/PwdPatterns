@@ -1,0 +1,34 @@
+upstream webapp {
+    server webpeas_app:5443;
+}
+
+server {
+    listen 5000;
+    listen [::]:5000;
+    server_name localhost pwdpatterns.fredtep.com;
+	
+    location /.well-known/acme-challenge {
+        root /webpeas_app/certbot;
+    }
+
+    location / {
+        return 301 https://pwdpatterns.fredtep.com$request_uri;
+    }
+
+}
+
+server{
+    listen 5443 default_server ssl http2;
+    listen [::]:5443 ssl http2;
+
+    server_name pwdpatterns.fredtep.com;
+
+    ssl_certificate /etc/nginx/ssl/live/pwdpatterns.fredtep.com/fullchain.pem;
+    ssl_certificate_key /etc/nginx/ssl/live/pwdpatterns.fredtep.com/privkey.pem;
+
+    location / {
+	proxy_pass http://webapp;
+    	proxy_set_header Host $host:$server_port;
+    	proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+    }
+}

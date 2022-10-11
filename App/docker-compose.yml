@@ -1,0 +1,25 @@
+version: '3.8'
+
+services:
+  webpeas_app:
+    container_name: pwdpatterns
+    build: .
+    volumes:
+      - ./:/pwdpatterns
+  nginx:
+    container_name: nginx_pwdpatterns
+    restart: always
+    image: "nginx:latest"
+    ports:
+      - "5000:5000"
+      - "5443:5443"
+    restart: always
+    volumes:
+      - ./nginx:/etc/nginx/conf.d/:ro
+      - ./certbot/www:/pwdpatterns/certbot/:ro
+      - ./certbot/conf:/etc/nginx/ssl/:ro
+  certbot:
+    image: certbot/certbot:arm64v8-v1.3.0
+    volumes:
+      - ./certbot/www/:/pwdpatterns/certbot/:rw
+      - ./certbot/conf/:/etc/letsencrypt/:rw
