@@ -1,8 +1,9 @@
 {
 "PasswordList":"rockyou.txt",
-"NumberOfPasswords":14344396,
+"NumberOfPasswords": 14344396,
 "Length":"[['Length : 1',45],['Length : 2',339],['Length : 3',2491],['Length : 4',18154],['Length : 5',259640],['Length : 6',1949273],['Length : 7',2507264],['Length : 8',2967116],['Length : 9',2191624],['Length : 10',2014096],['Length : 11',865902],['Length : 12',555088],['Length : 13',364096],['Length : 14',248257],['Length : 15',161032],['Length : 16',118093],['Length : 17',36711],['Length : 18',23221]]",
 "Pattern":"[['LowNum : ',6076190],['Low : ',3730653],['Num : ',2346744],['SpecAny : ',893667],['Up : ',230198],['LowUp : ',159537],['UpNum : ',407546],['LowUpNum : ',382353]]",
 "LowNumPattern":"[['LowerNum : ',4721058],['NumLower : ',602979],['RestLowNum : ',752153]]",
-"LowerN":"[['LowerN :',849149],['LowerNN :',1597799],['LowerNNN :',686444],['LowerNNNN :',1022374],['LowerNNNNN :',159381],['LowerNNNNNN :',242990],['LowerNNNNNNN :',68329]]"
+"LowerN":"[['LowerN :',849149],['LowerNN :',1597799],['LowerNNN :',686444],['LowerNNNN :',1022374],['LowerNNNNN :',159381],['LowerNNNNNN :',242990],['LowerNNNNNNN :',68329]]",
+"SpecAny":"[['OnlySpec :',907],['UpSpec :',24446],['LowSpec :',325259],['LowNumSpec :',385113],['UpNumSpec :',24008],['LowUpNumSpec :',47221]]"
 }

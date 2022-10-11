@@ -129,30 +129,31 @@ LowerNNNNNNN=$(grep -Ea "^[a-z]+[0-9]{7}$" $1 | wc -l)
 echo -e "${CYAN}Generating Lower + xN \n"
 
 # Generate the JSON File
-echo "\"LowerN\":\"[['LowerN :',$LowerN],['LowerNN :',$LowerNN],['LowerNNN :',$LowerNNN],['LowerNNNN :',$LowerNNNN],['LowerNNNNN :',$LowerNNNNN],['LowerNNNNNN :',$LowerNNNNNN],['LowerNNNNNNN :',$LowerNNNNNNN]]\"" >> $RESULT
+echo "\"LowerN\":\"[['LowerN :',$LowerN],['LowerNN :',$LowerNN],['LowerNNN :',$LowerNNN],['LowerNNNN :',$LowerNNNN],['LowerNNNNN :',$LowerNNNNN],['LowerNNNNNN :',$LowerNNNNNN],['LowerNNNNNNN :',$LowerNNNNNNN]]\"," >> $RESULT
+
 
 
 ###########################################
 #-------) Special chars patterns (--------#
 ###########################################
 
-# onlySpec
-# grep -Ea "^[\!:;,?./§*$&\"\'(-|_^@)=+]*$" $1 |wc -l
+echo -e "${CYAN}Generating special characters password patterns \n"
 
-# UpSpec
-# grep -Ea "[\!:;,?./§*$&\"\'(-|_^@)=+]" $1 | grep -ve "[0-9]" | grep -ve "[a-z]" | wc -l
+OnlySpec=$(grep -Ea "^[\!:;,?./§*$&\"\'(-|_^@)=+]*$" $1 | wc -l)
+echo "${CYAN}OnlySpec :${NC} $OnlySpec"
+UpSpec=$(grep -Ea "[\!:;,?./§*$&\"\'(-|_^@)=+]" $1 | grep -vE "[0-9]" | grep -vE "[a-z]" | grep -vE "^[\!:;,?./§*$&\"\'(-|_^@)=+]+$" |  wc -l)
+echo "${CYAN}UpSpec :${NC} $UpSpec"
+LowSpec=$(grep -Ea "[\!:;,?./§*$&\"\'(-|_^@)=+]" $1 | grep -vE "[0-9]" | grep -vE "[A-Z]" | grep -vE "^[\!:;,?./§*$&\"\'(-|_^@)=+]+$" | wc -l)
+echo "${CYAN}LowSpec :${NC} $LowSpec"
+LowNumSpec=$(grep -Ea "[\!:;,?./§*$&\"\'(-|_^@)=+]" $1 | grep -Ea "[0-9]" | grep -Ea "[a-z]" | grep -vE "[A-Z]" | grep -vE "^[\!:;,?./§*$&\"\'(-|_^@)=+]+$" | wc -l)
+echo "${CYAN}LowNumSpec :${NC} $LowNumSpec"
+UpNumSpec=$(grep -Ea "[\!:;,?./§*$&\"\'(-|_^@)=+]" $1 | grep -Ea "[0-9]" | grep -Ea "[A-Z]" | grep -vE "[a-z]" | grep -vE "^[\!:;,?./§*$&\"\'(-|_^@)=+]+$" | wc -l)
+echo "${CYAN}UpNumSpec :${NC} $UpNumSpec"
+LowUpNumSpec=$(grep -Ea "[\!:;,?./§*$&\"\'(-|_^@)=+]" $1 | grep -Ea "[0-9]" | grep -Ea "[A-Z]" | grep -Ea "[a-z]" | grep -vE "^[\!:;,?./§*$&\"\'(-|_^@)=+]+$" | wc -l)
+echo "${CYAN}LowUpNumSpec :${NC} $LowUpNumSpec"
 
-# LowSpec
-# grep -Ea "[\!:;,?./§*$&\"\'(-|_^@)=+]" $1 | grep -ve "[0-9]" | grep -ve "[A-Z]" | wc -l
+echo "\"SpecAny\":\"[['OnlySpec :',$OnlySpec],['UpSpec :',$UpSpec],['LowSpec :',$LowSpec],['LowNumSpec :',$LowNumSpec],['UpNumSpec :',$UpNumSpec],['LowUpNumSpec :',$LowUpNumSpec]]\"" >> $RESULT
 
-# UpSpec
-# grep -Ea "[\!:;,?./§*$&\"\'(-|_^@)=+]" $1 | grep -ve "[0-9]" | grep -Ea "[A-Z]" | wc -l
-
-# lowNumSpec
-# grep -Ea "[\!:;,?./§*$&\"\'(-|_^@)=+]" $1 | grep -Ea "[0-9]" | grep -Ea "[a-z]" | grep -ve "[A-Z]" | wc -l
-
-# UpNumSpec
-# grep -Ea "[\!:;,?./§*$&\"\'(-|_^@)=+]" $1 | grep -Ea "[0-9]" | grep -Ea "[A-Z]" | grep -ve "[a-z]" | wc -l
 
 # Console Output
 echo "${LIGHT_MAGENTA}Done! Enjoy"

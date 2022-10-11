@@ -1,8 +1,7 @@
 {
 "PasswordList":"Collection1_fr.txt",
-"NumberOfPasswords":27366557,
+"NumberOfPasswords": 27366557,
 "Length":"[['Length : 1',6520],['Length : 2',10989],['Length : 3',326794],['Length : 4',285567],['Length : 5',423793],['Length : 6',4721793],['Length : 7',3475312],['Length : 8',10695841],['Length : 9',2536651],['Length : 10',2401757],['Length : 11',933007],['Length : 12',518249],['Length : 13',264231],['Length : 14',194165],['Length : 15',165819],['Length : 16',111536],['Length : 17',33382],['Length : 18',33459]]",
 "Pattern":"[['LowNum : ',8472795],['Low : ',12910451],['Num : ',3850327],['SpecAny : ',585026],['Up : ',304700],['LowUp : ',222236],['UpNum : ',392096],['LowUpNum : ',602277]]",
 "LowNumPattern":"[['LowerNum : ',5875948],['NumLower : ',606811],['RestLowNum : ',1990036]]",
-"LowerN":"[['LowerN :',1559902],['LowerNN :',1969729],['LowerNNN :',706684],['LowerNNNN :',970907],['LowerNNNNN :',294795],['LowerNNNNNN :',210548],['LowerNNNNNNN :',47124]]"
-}
+"LowerN":"[['LowerN :',1559902],['LowerNN :',1969729],['LowerNNN :',706684],['LowerNNNN :',970907],['LowerNNNNN :',294795],['LowerNNNNNN :',210548],['LowerNNNNNNN :',47124]]",

@@ -21,6 +21,7 @@ def home():
         Pattern = data['Pattern']
         LowNumPattern = data['LowNumPattern']
         LowerN = data['LowerN']
+        SpecAny = data['SpecAny']
     f.close()
     return render_template(
         'home.html',
@@ -32,6 +33,7 @@ def home():
         Pattern=Pattern,
         LowNumPattern=LowNumPattern,
         LowerN=LowerN,
+        SpecAny=SpecAny,
         PwdFiles=PwdFiles,
         menus=menus
     )
@@ -48,6 +50,7 @@ def pwd_menu(pwdlist:str):
         Pattern = data['Pattern']
         LowNumPattern = data['LowNumPattern']
         LowerN = data['LowerN']
+        SpecAny = data['SpecAny']
     f.close()
     return render_template(
         'home.html',
@@ -59,5 +62,7 @@ def pwd_menu(pwdlist:str):
         Pattern=Pattern,
         LowNumPattern=LowNumPattern,
         LowerN=LowerN,
+        SpecAny=SpecAny,
+        PwdFiles=PwdFiles,
         menus=menus
     )
