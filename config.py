@@ -5,8 +5,7 @@ class Config(object):
     basedir = os.path.abspath(os.path.dirname(__file__))
 
     # Set up the App SECRET_KEY
-    # SECRET_KEY = config('SECRET_KEY'  , default='S#perS3crEt_007')
-    SECRET_KEY = os.getenv('SECRET_KEY', '3a7e56c91dbc8e3797eb6ca9d9238ec6')
+    SECRET_KEY = os.getenv('SECRET_KEY', '<Your wicked secret key>')
 
     # Assets Management
     ASSETS_ROOT = os.getenv('ASSETS_ROOT', '/static')
