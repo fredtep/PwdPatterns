@@ -11,7 +11,7 @@ In order to do so I built a bash script that will find different patterns from a
 
 ## DEMO
 
-You can see it in action here : http://pwdpatterns.fredtep.com:24660
+You can see it in action here : http://pwdpatterns.fredtep.com
 
 ## In order to play with PasswordPattern
 
